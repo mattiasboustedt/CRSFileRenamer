@@ -22,13 +22,31 @@ if (Test-Path -Path .\codeunit) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+            
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+            
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+
+        <# Rename Files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Cod" + $nbr + "." + $noPrefixName
 
         Write-Host($newBaseName)
-
         Rename-Item -Path $_.FullName -NewName "$($_.DirectoryName)\$($newBaseName)$($_.Extension)"
+
         $nbr++
     }
     Set-Location ..
@@ -46,13 +64,30 @@ if (Test-Path -Path .\page) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Pag" + $nbr + "." + $noPrefixName
 
         Write-Host($newBaseName)
-
         Rename-Item -Path $_.FullName -NewName "$($_.DirectoryName)\$($newBaseName)$($_.Extension)"
+
         $nbr++
     }
     Set-Location ..
@@ -70,6 +105,24 @@ if (Test-Path -Path .\pageextension) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+            
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Pag-Ext" + $nbr + "." + $noPrefixName
@@ -94,6 +147,24 @@ if (Test-Path -Path .\table) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Tab" + $nbr + "." + $noPrefixName
@@ -118,6 +189,24 @@ if (Test-Path -Path .\tableextension) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Tab-Ext" + $nbr + "." + $noPrefixName
@@ -142,6 +231,24 @@ if (Test-Path -Path .\query) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Que" + $nbr + "." + $noPrefixName
@@ -166,6 +273,24 @@ if (Test-Path -Path .\report) {
 
     Get-ChildItem  -Filter *.al |
         ForEach-Object {
+        <# Change file content #>
+        $fileContent = Get-Content -Path $_.FullName
+        $newNbr = " " + $nbr + " "
+    
+        $newFileContent = $fileContent[0] -replace "\ \d{5}\ ", $newNbr
+        Write-Host($newFileContent)
+    
+        $fileContent | ForEach-Object { 
+            if ($_.ReadCount -eq 1) { 
+                $_ -replace '^.*', $newFileContent
+            }
+            else { 
+                $_ 
+            }
+        } |
+            Set-Content $_.FullName
+
+        <# Rename files #>
         $oldBaseName = $_.BaseName
         $noPrefixName = $oldBaseName.Split('.')[1]
         $newBaseName = "Rep" + $nbr + "." + $noPrefixName
